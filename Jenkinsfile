@@ -1,3 +1,5 @@
+@Library('my-shared-library') _
+
 pipeline{
 
     agent any
@@ -8,8 +10,12 @@ pipeline{
                   
             steps{
                  script{
-                    git branch: 'local', url: 'https://github.com/imranmycloud/vprofile-project.git'
-                 }
+                     gitCheckout(
+                     branch: "local",
+                     url: "https://github.com/imranmycloud/vprofile-project.git"
+                    )
+                  
+                }
             
             }
              
